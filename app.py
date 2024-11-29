@@ -1,14 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from functools import wraps
+import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')  # FLAG: Potential security issue
 
-# Hardcoded credentials (NOT recommended for production)
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "admin123"
-USER_USERNAME = "user"
-USER_PASSWORD = "user123"
+# SECURITY ISSUE: Hardcoded credentials
+CREDENTIALS = {
+    "admin": {
+        "username": "admin",  # SECURITY ISSUE: Hardcoded username
+        "password": "admin123",  # SECURITY ISSUE: Hardcoded password
+        "role": "admin"
+    },
+    "user": {
+        "username": "user",  # SECURITY ISSUE: Hardcoded username
+        "password": "user123",  # SECURITY ISSUE: Hardcoded password
+        "role": "user"
+    }
+}
 
 # Website details
 website_info = {
@@ -28,44 +37,20 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-@app.route('/')
-def home():
-    return render_template('home.html', website_info=website_info)
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         
-        # Simple hardcoded authentication
-        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+        # SECURITY ISSUE: Direct credential comparison
+        user_data = CREDENTIALS.get(username)
+        if user_data and user_data["password"] == password:
             session['username'] = username
-            session['role'] = 'admin'
-            flash('Welcome Admin!', 'success')
-            return redirect(url_for('dashboard'))
-        elif username == USER_USERNAME and password == USER_PASSWORD:
-            session['username'] = username
-            session['role'] = 'user'
-            flash('Welcome User!', 'success')
+            session['role'] = user_data["role"]
+            flash(f'Welcome {user_data["role"].title()}!', 'success')
             return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password', 'error')
     
     return render_template('login.html')
-
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html', 
-                         username=session['username'], 
-                         role=session['role'])
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    flash('You have been logged out', 'info')
-    return redirect(url_for('home'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
