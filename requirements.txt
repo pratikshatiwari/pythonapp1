@@ -4,7 +4,8 @@ Werkzeug==3.0.6  # Fixed multiple vulnerabilities (CVE-2024-34069, CVE-2023-4613
 python-dotenv==1.0.1
 bandit==1.7.7    # Fixed PVE-2024-64484
 pytest==8.0.2
-safety==2.3.5
+#safety==2.3.5
 pylint==3.0.3
 gunicorn>=23.0.0
 packaging>=21.0,<22.0
+pip-audit
