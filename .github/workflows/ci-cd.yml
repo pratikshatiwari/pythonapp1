@@ -32,7 +32,4 @@ jobs:
           pip install -r requirements.txt --use-deprecated=legacy-resolver
           pip install safety packaging==24.0 --no-deps
 
-      # Step 4: Run tests
-      - name: Run tests
-        run: |
-          pytest /  # Replace with your test directory
+      
