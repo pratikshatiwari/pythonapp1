@@ -7,3 +7,4 @@ def login():
     username = "admin"  # Should be detected
     password = "password123"  # Should be detected
     return username, password
+    t
