@@ -9,7 +9,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')  # FLAG: Pot
 CREDENTIALS = {
     "admin": {
         "username": "admin",  # SECURITY ISSUE: Hardcoded username
-        "password": "admin123",  # SECURITY ISSUE: Hardcoded password
+        "password": "admin1234",  # SECURITY ISSUE: Hardcoded password
         "role": "admin"
     },
     "user": {
