@@ -32,4 +32,6 @@ jobs:
           pip install -r requirements.txt --use-deprecated=legacy-resolver
           pip install safety packaging==24.0 --no-deps
 
-      
+      # Step 4: Perform Tests
+          python -m unittest test_app.py
+
