@@ -36,4 +36,10 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
+
+    - name: Initialize CodeQL with custom queries
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
         queries: github/codeql/custom-queries/hardcoded-credentials.ql
+
