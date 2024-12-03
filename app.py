@@ -52,5 +52,35 @@ def login():
             return redirect(url_for('dashboard'))
         else:
             flash('Invalid username or password', 'error')
+
+    # app.py
+
+def count_lines(file_path):
+    """
+    Counts the number of lines in a given file.
+
+    Args:
+        file_path (str): Path to the file.
+
+    Returns:
+        int: Number of lines in the file.
+    """
+    with open(file_path, 'r') as file:
+        return sum(1 for line in file)
+
+def contains_keyword(file_path, keyword):
+    """
+    Checks if a given keyword exists in the file.
+
+    Args:
+        file_path (str): Path to the file.
+        keyword (str): Keyword to search for.
+
+    Returns:
+        bool: True if keyword is found, False otherwise.
+    """
+    with open(file_path, 'r') as file:
+        return any(keyword in line for line in file)
+
     
     return render_template('login.html')
