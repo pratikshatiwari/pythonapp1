@@ -41,5 +41,5 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: github/codeql/custom-queries/hardcoded-credentials.ql
+        queries: .github/codeql/custom-queries/hardcoded-credentials.ql
 
