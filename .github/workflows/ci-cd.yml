@@ -33,5 +33,7 @@ jobs:
           pip install safety packaging==24.0 --no-deps
 
       # Step 4: Perform Tests
+      - name: Tests
+        run: |
           python -m unittest test_app.py
 
