@@ -28,6 +28,11 @@ website_info = {
     "phone": "+1 234 567 890"
 }
 
+# app.py
+hardcoded_password = "mySuperSecretPassword"
+secret_token = "myToken12345"
+
+
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
