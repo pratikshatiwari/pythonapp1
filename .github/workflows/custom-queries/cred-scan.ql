@@ -1,11 +1,10 @@
 import python
 
-from Literal string
+/**
+ * Identifies hardcoded strings in Python files
+ * that may indicate sensitive information, such as passwords, secrets, or tokens.
+ */
+from PyLiteralExpr string
 where
-  string.isStringLiteral() and
-  (
-    string.getValue().toLowerCase().matches("%password%") or
-    string.getValue().toLowerCase().matches("%secret%") or
-    string.getValue().toLowerCase().matches("%token%")
-  )
+  string.getValue().regexpMatch("(?i)(password|secret|token)")
 select string, "Hardcoded sensitive information found: " + string.getValue()
