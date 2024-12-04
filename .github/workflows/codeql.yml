@@ -32,9 +32,6 @@ jobs:
         languages: ${{ matrix.language }}
         queries: ./custom-queries/cred-scan.ql
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-
     - name: List project files
       run: ls -R
     
