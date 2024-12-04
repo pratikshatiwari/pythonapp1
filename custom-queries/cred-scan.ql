@@ -1,10 +1,10 @@
 import python
 
-from Literal string, Variable variable
-where string.isStringLiteral() and
-      (
-        string.toLowerCase().matches("%password%") or
-        string.toLowerCase().matches("%secret%") or
-        string.toLowerCase().matches("%token%")
-      )
-select variable, "Hardcoded sensitive information found in this variable."
+/**
+ * Identifies hardcoded strings in Python files
+ * that may indicate sensitive information, such as passwords, secrets, or tokens.
+ */
+from PyLiteralExpr string
+where
+  string.getValue().regexpMatch("(?i)(password|secret|token)")
+select string, "Hardcoded sensitive information found: " + string.getValue()
