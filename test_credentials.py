@@ -4,6 +4,6 @@ USER_TOKEN = "secret_token"  # Should be detected
 API_KEY = "abc123"  # Should be detected in scan
 
 def login():
-    username = "admin"  # Should be detected
+    username = "admin1"  # Should be detected
     password = "password123"  # Should be detected
     return username, password
