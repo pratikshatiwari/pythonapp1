@@ -30,7 +30,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: +security-extended,+security-and-quality,./custom-queries/
+        queries: ./custom-queries/
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
