@@ -7,7 +7,7 @@ queries:
    
 
   # Use extended security queries provided by CodeQL
-  - uses: github/python/ql/src/codeql-suites/security-extended@main
+  - uses: github/codeql/security-extended@main
 
   # Use security and quality queries for broader checks
   #: github/codeql/security-and-quality@main
