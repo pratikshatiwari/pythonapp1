@@ -19,5 +19,6 @@
 
 name: "CodeQL Configuration"
 queries:
-  - uses: github/codeql/python-queries@v1
+  - uses: github/codeql/python-queries@main
+  
   #- path: 'custom-queries/secrets-scan.ql'
