@@ -5,10 +5,12 @@ queries:
   #- uses: github/codeql/python-queries@main
 
   # Use extended security queries provided by CodeQL
-  - uses: github/codeql/security-extended@main
+  #- uses: github/codeql/security-extended@main
 
   # Use security and quality queries for broader checks
   #- uses: github/codeql/security-and-quality@main
 
   # Uncomment this to include custom queries
   # - path: custom-queries/secrets-scan.ql
+
+  - path: python
