@@ -10,5 +10,5 @@ SECRET_KEY = "super_secret_key"
 
 def login():
     username = "admin1"  # Should be detected
-    password = "password123"  # Should be detected
+    password = "password1234"  # Should be detected
     return username, password
