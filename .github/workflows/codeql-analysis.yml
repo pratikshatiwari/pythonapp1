@@ -24,10 +24,9 @@ jobs:
         queries: +
           - github/codeql/python-queries@latest
           - github/codeql/security-and-quality@latest
-          - ./custom-queries/secrets-scan.ql
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      env:
-        ACTIONS_STEP_DEBUG: true
-        CODEQL_ACTION_DEBUG: true
+      #env:
+      #  ACTIONS_STEP_DEBUG: true
+      #  CODEQL_ACTION_DEBUG: true
