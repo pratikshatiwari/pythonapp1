@@ -1,30 +1,16 @@
-# This CodeQL configuration file defines custom and standard queries to run during analysis.
-# It specifies a combination of default queries provided by CodeQL and user-defined custom queries.
+name: "Custom CodeQL Configuration"
 
-name: "Custom CodeQL Configuration"  # Optional name for the configuration
-
-# List of query packs or individual queries to run
 queries:
-  # Use the built-in CodeQL Python query pack
-  - uses: codeql/python-queries
-  
-  # Use additional custom queries
-  - path: custom-queries/cred-scan.ql  # Path to the custom query for sensitive information detection
+  - uses: codeql/python-queries  # Standard queries for Python
+  - path: custom-queries/cred-scan.ql  # Path to your custom query file
 
-# Options for how CodeQL should analyze the repository
 include:
-  - "**/*.py"    # Include all Python files in the analysis
+  - "**/*.py"  # Include all Python files for analysis
 exclude:
-  - "**/tests/**"  # Optionally exclude test directories from the analysis
-  - "**/__pycache__/**"
+  - "**/tests/**"  # Optionally exclude test files
+  - "**/__pycache__/**"  # Exclude cache files
 
-# Optional settings for customizing analysis behavior
 options:
-  # Set the maximum number of results for a single query (useful for limiting excessive results)
   max-paths: 5
-
-  # Enable or disable experimental queries (use with caution as they may be unstable)
   experimental: false
-
-  # Override query timeouts if needed
-  timeout: 300  # 300 seconds (5 minutes)
+  timeout: 300
