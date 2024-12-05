@@ -1,20 +1,4 @@
-name: "CodeQL Python Configuration"
-
+name: "Python Security Queries"
 queries:
-  # Use standard CodeQL queries for Python
-  #- uses: github/codeql/python-queries@main
-  #- uses: github/codeql/python-queries@main
-   
-
-  # Use extended security queries provided by CodeQL
-  - uses: github/codeql/security-extended@main
-
-  # Use security and quality queries for broader checks
-  #: github/codeql/security-and-quality@main
-
-  # Uncomment this to include custom queries
-  # - path: custom-queries/secrets-scan.ql
-
-  #- path: python
-
-
+  - uses: github/codeql/python-queries  # Standard CodeQL queries for Python
+  - uses: ./custom-queries  # Ensure this path exists in your repo
