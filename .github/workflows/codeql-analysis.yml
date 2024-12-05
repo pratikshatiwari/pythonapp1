@@ -27,6 +27,6 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      #env:
-      #  ACTIONS_STEP_DEBUG: true
-      #  CODEQL_ACTION_DEBUG: true
+      env:
+        ACTIONS_STEP_DEBUG: true
+        CODEQL_ACTION_DEBUG: true
