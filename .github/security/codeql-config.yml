@@ -2,7 +2,7 @@ name: "Custom CodeQL Configuration"
 
 queries:
   - uses: codeql/python-queries  # Standard queries for Python
-  - path: custom-queries/cred-scan.ql  # Path to your custom query file
+  - path: custom-queries/queries/cred-scan.ql  # Path to your custom query file
 
 include:
   - "**/*.py"  # Include all Python files for analysis
