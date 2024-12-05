@@ -1,4 +1,4 @@
 name: "Python Security Queries"
 queries:
- # - uses: github/codeql/python-queries  # Standard CodeQL queries for Python
-  - uses: ./custom-queries  # Ensure this path exists in your repo
+  - uses: github/codeql/python-queries  # Standard CodeQL queries for Python
+  - uses: ./custom-queries  # Working fine
