@@ -13,7 +13,7 @@ queries:
 
 # Options for how CodeQL should analyze the repository
 include:
-  - "*.py"    # Include all Python files in the analysis
+  - "**/*.py"    # Include all Python files in the analysis
 exclude:
   - "**/tests/**"  # Optionally exclude test directories from the analysis
   - "**/__pycache__/**"
