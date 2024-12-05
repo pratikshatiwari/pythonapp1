@@ -22,7 +22,8 @@ jobs:
       with:
         languages: python
         queries: +
-          - github/codeql/python-queries@latest
+          - github/codeql/security-and-quality@latest
+          - github/codeql/security-extended@latest
 
 
     - name: Perform CodeQL Analysis
