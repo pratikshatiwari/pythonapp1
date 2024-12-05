@@ -9,8 +9,3 @@ include:
 exclude:
   - "**/tests/**"  # Optionally exclude test files
   - "**/__pycache__/**"  # Exclude cache files
-
-options:
-  max-paths: 5
-  experimental: false
-  timeout: 300
