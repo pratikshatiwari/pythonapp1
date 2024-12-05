@@ -2,10 +2,10 @@ name: "CodeQL Python Configuration"
 
 queries:
   # Use standard CodeQL queries for Python
-  - uses: github/codeql/python-queries@main
+  #- uses: github/codeql/python-queries@main
 
   # Use extended security queries provided by CodeQL
-  #- uses: github/codeql/security-extended@main
+  - uses: github/codeql/security-extended@main
 
   # Use security and quality queries for broader checks
   #- uses: github/codeql/security-and-quality@main
