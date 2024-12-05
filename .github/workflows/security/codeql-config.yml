@@ -1,6 +1,6 @@
-name: "CodeQL Python Configuration"
+#name: "CodeQL Python Configuration"
 
-queries:
+#queries:
   # Use standard CodeQL queries for Python
   #- uses: github/codeql/python-queries@main
   #- uses: github/codeql/python-queries@main
@@ -15,4 +15,9 @@ queries:
   # Uncomment this to include custom queries
   # - path: custom-queries/secrets-scan.ql
 
-  - path: python
+  #- path: python
+
+name: "CodeQL Configuration"
+queries:
+  - uses: github/codeql/python-queries@v1
+  - path: custom-queries/secrets-scan.ql
