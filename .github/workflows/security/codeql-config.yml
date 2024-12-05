@@ -1,0 +1,6 @@
+name: "CodeQL Python Configuration"
+
+queries:
+  - uses: codeql/python-queries  # Use CodeQL's built-in Python queries
+  - uses: codeql/security-extended  # Enable extended security analysis
+  - path: custom-queries/secrets-scan.ql  # Include custom query for sensitive info (if needed)
