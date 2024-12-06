@@ -6,15 +6,14 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '18 6 * * 0'  # Optional: Weekly scheduled scan
+    - cron: '18 6 * * 0' # Run every Sunday at 6:18 AM UTC
 
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
-      packages: read
       actions: read
       contents: read
 
@@ -23,22 +22,26 @@ jobs:
       matrix:
         include:
           - language: python
-         #   build-mode: none
+            build-mode: none
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    # Initialize CodeQL
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        # languages: ${{ matrix.language }}
-        # build-mode: ${{ matrix.build-mode }}
-        config-file: ./.github/workflows/security/codeql-config.yml  # Specify your configuration file here
-        queries: +security-extended
-        
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        queries: +security-extended # Use security-extended query pack
 
+    # If manual build is required, customize this step
+    - if: matrix.build-mode == 'manual'
+      run: |
+        echo 'Manual build mode is required. Add commands to build your code here.'
+        exit 1
+
+    # Run CodeQL Analysis
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
+      uses: github/
