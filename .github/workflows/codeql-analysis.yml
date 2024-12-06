@@ -33,7 +33,8 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: python
-        config-file: codeql-config.yml
+        queries: +secrets
+        additional-trap-options: "--extract-all-files"
    
         
     - if: matrix.build-mode == 'manual'
