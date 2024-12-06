@@ -1,0 +1,22 @@
+# Simulating a simple login system
+
+def login(username, password):
+    # Hardcoded credentials (for demonstration purposes only; not recommended in production)
+    stored_username = "admin"
+    stored_password = "P@ssw0rd123"
+    
+    # Check credentials
+    if username == stored_username and password == stored_password:
+        return "Login successful!"
+    else:
+        return "Invalid username or password."
+
+# Test the login function
+if __name__ == "__main__":
+    # Simulate user input
+    input_username = input("Enter username: ")
+    input_password = input("Enter password: ")
+    
+    # Perform login
+    result = login(input_username, input_password)
+    print(result)
