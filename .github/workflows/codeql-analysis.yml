@@ -35,7 +35,7 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         #config-file: ./.github/workflows/security/codeql-config.yml  # Specify your configuration file here
-        queries: +security-extended
+        queries: +security-and-quality
         
     - if: matrix.build-mode == 'manual'
       shell: bash
