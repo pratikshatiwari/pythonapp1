@@ -23,7 +23,7 @@ jobs:
       matrix:
         include:
           - language: python
-            build-mode: none
+         #   build-mode: none
 
     steps:
     - name: Checkout repository
@@ -32,10 +32,10 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
-        build-mode: ${{ matrix.build-mode }}
+        # languages: ${{ matrix.language }}
+        # build-mode: ${{ matrix.build-mode }}
         config-file: ./.github/workflows/security/codeql-config.yml  # Specify your configuration file here
-        queries: security-extended
+        queries: +security-extended
         
 
     - name: Perform CodeQL Analysis
