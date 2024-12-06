@@ -5,21 +5,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  schedule:
-    - cron: '0 0 * * 0'  # Weekly scan
 
 jobs:
   analyze:
-    name: Analyze (${matrix.language})
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-
     strategy:
       fail-fast: false
       matrix:
-        language: ['python']  # Specify the language
-        # Additional languages can be added here, if needed
+        language: [ 'python', 'javascript', 'csharp' ] # Add relevant languages
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,8 +23,12 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-          queries: +security-extended,security-and-quality
-          # You can specify custom query packs or additional queries here if needed
+          queries: +security-extended
+
+      - name: Build Code (if applicable)
+        run: |
+          # Add any build steps if needed for compiled languages like Java, C#, etc.
+          echo "No build required for Python."
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
