@@ -2,4 +2,11 @@ name: "Python Security Queries"
 queries:
   #- uses: github/codeql/python-queries  # Standard CodeQL queries for Python
   - uses: ./custom-queries/secrets-scan.ql  # Working fine
-  - uses: security-extended
+  - uses: github/codeql/python-queries:security-extended
+  - uses: github/codeql/codeql-scripts/secrets-scan
+  - uses: github/codeql/python-queries:security-and-quality
+  
+# queries:
+#   - github/codeql/python-queries:security-extended
+#   - github/codeql/python-queries:security-and-quality
+#   - github/codeql/codeql-scripts/secrets-scan
