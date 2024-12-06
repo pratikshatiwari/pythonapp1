@@ -11,7 +11,7 @@ on:
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
       packages: read
@@ -34,8 +34,8 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        config-file: ./.github/workflows/security/codeql-config.yml  # Specify your configuration file here
-        queries: security-extended
+        #config-file: ./.github/workflows/security/codeql-config.yml  # Specify your configuration file here
+        queries: +security-extended
         
     - if: matrix.build-mode == 'manual'
       shell: bash
