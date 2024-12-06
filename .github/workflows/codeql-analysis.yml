@@ -6,29 +6,30 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '18 6 * * 0'
+    - cron: '0 0 * * 0'  # Weekly scan
 
 jobs:
   analyze:
-    name: Analyze (${{ matrix.language }})
+    name: Analyze (${matrix.language})
     runs-on: ubuntu-latest
     permissions:
       security-events: write
+
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'python' ]
+        language: ['python']  # Specify the language
+        # Additional languages can be added here, if needed
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        config-file: ./.github/workflows/security/codeql-config.yml
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: +security-extended,security-and-quality
+          # You can specify custom query packs or additional queries here if needed
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{ matrix.language }}"
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
