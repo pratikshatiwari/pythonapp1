@@ -1,0 +1,4 @@
+queries:
+  - uses: security-and-quality
+  - uses: ./custom-queries/unsafe_eval.ql
+  - uses: ./custom-queries/secrets-scan.ql
