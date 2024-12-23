@@ -5,7 +5,8 @@ import python
  */
 from Call c
 where
-  not exists(FunctionCall logCall |
-    logCall.getEnclosingCallable() = c.getEnclosingCallable() and
-    logCall.getFunction().getName().matches("log|logger|audit"))
-select c, "Missing log calls detected in critical function."
+  // Ensure the call is not a logging-related function
+  not exists(Call logCall |
+    logCall.getCallee().getName().matches("log|logger|audit") and
+    logCall.getEnclosingCallable() = c.getEnclosingCallable())
+select c, "This function call might require logging."
