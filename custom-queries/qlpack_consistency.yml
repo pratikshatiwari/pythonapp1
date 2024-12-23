@@ -1,12 +1,6 @@
-name: codeql/python-queries
-version: 1.3.5-dev
-groups:
-  - python
-  - queries
-dependencies:
-  codeql/python-all: ${workspace}
-  codeql/suite-helpers: ${workspace}
-suites: codeql-suites
+name: codeql-python-recorded-call-graph-metrics
+version: 0.0.1
 extractor: python
-defaultSuiteFile: codeql-suites/python-code-scanning.qls
+dependencies:
+  codeql/python-all: '*'
 warnOnImplicitThis: true
