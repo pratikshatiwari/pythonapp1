@@ -10,7 +10,7 @@
 import python
 
 /** Find calls to the eval function */
-from FunctionCall call
+from Call call
 where
   call.getTarget().getName() = "eval"
 select call, "Unsafe usage of eval() function."
