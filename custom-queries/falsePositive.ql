@@ -1,5 +1,5 @@
 import python
-import semmle.python.security.dataflow.DefaultTaintTracking
 
-from FunctionCall fc
-select fc, "Potential issue with this function call."
+from Call c
+where c.getCallee().getName() = "eval"
+select c, "Avoid using 'eval', as it can introduce security vulnerabilities."
