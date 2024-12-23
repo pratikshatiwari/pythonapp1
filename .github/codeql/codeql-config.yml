@@ -1,7 +1,9 @@
 name: "CodeQL config"
 queries: 
-  # - name: Run custom queries
-  #   uses: ./custom-queries
+  - name: Run custom queries
+    uses: ./custom-queries
+  - name: Use a query suite file (run queries from a query suite in this repo)
+    uses: ./codeql-packs/complex-python-codeql-pack/rootAndBar.qls
   # Run all extra query suites, both because we want to
   # and because it'll act as extra testing. This is why
   # we include both even though one is a superset of the
