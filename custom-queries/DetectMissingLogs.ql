@@ -1,12 +1,11 @@
 import python
 
 /**
- * Detect critical functions where logging is missing.
+ * Detect functions where logging is missing.
  */
-from Call c, Function f
+from Call c
 where
-  c.getEnclosingCallable() = f and
   not exists(Call logCall |
-    logCall.getEnclosingCallable() = f and
-    logCall.getFunction().getName().matches("log|logger|audit"))
-select c, "Critical operation without logging detected."
+    logCall.getTarget().getName().matches("log|logger|audit") and
+    logCall.getEnclosingCallable().getName() = c.getEnclosingCallable().getName())
+select c, "Missing log calls detected in critical function."
