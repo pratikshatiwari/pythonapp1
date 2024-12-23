@@ -5,7 +5,7 @@ import python
  */
 from Call c
 where
-  not exists(Call logCall |
-    logCall.getTarget().getName().matches("log|logger|audit") and
-    logCall.getEnclosingCallable().getName() = c.getEnclosingCallable().getName())
+  not exists(FunctionCall logCall |
+    logCall.getEnclosingCallable() = c.getEnclosingCallable() and
+    logCall.getFunction().getName().matches("log|logger|audit"))
 select c, "Missing log calls detected in critical function."
