@@ -6,7 +6,7 @@ groups:
 dependencies:
   codeql/python-all: "*"
   codeql/suite-helpers: "*"
-suites: codeql-suites
-extractor: python
-defaultSuiteFile: codeql-suites/python-code-scanning.qls
+# suites: codeql-suites
+# extractor: python
+# defaultSuiteFile: codeql-suites/python-code-scanning.qls
 warnOnImplicitThis: true
