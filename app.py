@@ -6,6 +6,9 @@ import f
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')  # FLAG: Potential security issue
 
+# Distance traveled on day 1
+distance_day1 = 120  # in miles
+
 # SECURITY ISSUE: Hardcoded credentials
 CREDENTIALS = {
     "admin": {
