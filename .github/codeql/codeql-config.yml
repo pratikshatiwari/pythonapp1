@@ -1,7 +1,7 @@
 name: "CodeQL config"
 queries: 
   - name: Run custom queries
-    uses: ./custom-queries
+    uses: ./custom-python-queries
   # - name: Use an external query (run a single query from an external CodeQL pack)
   #   uses: octo-org/python-codeql-pack/show_ifs.ql@main
   # Run all extra query suites, both because we want to
@@ -12,6 +12,6 @@ queries:
   - uses: security-experimental
   - uses: security-extended
   - uses: security-and-quality
-paths-ignore:
-  - tests
-  - lib
+#paths-ignore:
+#  - tests
+#  - lib
