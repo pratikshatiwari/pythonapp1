@@ -3,6 +3,12 @@ import tempfile
 import os
 from app import count_lines, contains_keyword
 
+    # Unused variables
+    
+unused_var_1 = 100  # Declared but never used
+unused_var_2 = "This is not used"  # Declared but never used
+unused_var_3 = [1, 2, 3]  # Declared but never used
+
 class TestAppFunctions(unittest.TestCase):
     
     def setUp(self):
