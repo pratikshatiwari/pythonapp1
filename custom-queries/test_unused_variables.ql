@@ -7,6 +7,6 @@ import python
  * @tags maintainability
  * @problem.severity warning
  */
-from Variable v
+from LocalVariable v
 where not exists (v.getAnAccess())
 select v, "The variable '" + v.getName() + "' is declared but never used."
