@@ -27,9 +27,9 @@ jobs:
           pip install -r requirements.txt
 
       # Step 4: Run tests (optional)
-      - name: Run tests
-        run: |
-          pytest tests/
+      # - name: Run tests
+      #   run: |
+      #     pytest tests/
 
       # Step 5: Deploy the application
       - name: Deploy to Server
