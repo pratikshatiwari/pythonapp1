@@ -68,6 +68,7 @@ jobs:
         build-mode: ${{ matrix.build-mode }}
         config-file: ./.github/codeql/codeql-config.yml
         queries: +security-and-quality
+        disable-default-queries: true
         debug: true
 
     # If the analyze step fails for one of the languages you are analyzing with
