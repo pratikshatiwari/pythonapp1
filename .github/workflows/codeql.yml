@@ -67,7 +67,7 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         config-file: ./.github/codeql/codeql-config.yml
-        queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
+        queries: +security-and-quality
         debug: true
 
     # If the analyze step fails for one of the languages you are analyzing with
