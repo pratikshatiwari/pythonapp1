@@ -16,3 +16,4 @@ jobs:
           languages: python
       - uses: github/codeql-action/autobuild@v2
       - uses: github/codeql-action/analyze@v2
+      debug: true
