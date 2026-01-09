@@ -1,6 +1,6 @@
 # requirements.txt
 Flask==3.0.2
-Werkzeug==3.0.6  # Fixed multiple vulnerabilities (CVE-2024-34069, CVE-2023-46136, CVE-2024-49767)
+Werkzeug==3.1.5  # Fixed multiple vulnerabilities (CVE-2024-34069, CVE-2023-46136, CVE-2024-49767)
 python-dotenv==1.0.1
 bandit==1.7.7    # Fixed PVE-2024-64484
 pytest==8.0.2
